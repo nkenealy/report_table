@@ -13,29 +13,29 @@ def as_rest_table(data, title=False):
     sol = '| '
     vs = ' | '
     eol = ' |'
-    meta_template = vs.join(['{{{{{0}:{{{0}}}}}}}'.format(i)
+    meta_tmpl = vs.join(['{{{{{0}:{{{0}}}}}}}'.format(i)
                                              for i in range(num_elts)])
-    template = '{0}{1}{2}'.format(sol,
-                                  meta_template.format(*sizes),
+    tmpl = '{0}{1}{2}'.format(sol,
+                                  meta_tmpl.format(*sizes),
                                   eol)
     # determine top/bottom borders
-    to_separator = string.maketrans('| ', '+-')
-    sol = sol.translate(to_separator)
-    vs = vs.translate(to_separator)
-    eol = eol.translate(to_separator)
-    separator = '{0}{1}{2}'.format(sol,
+    to_sep = string.maketrans('| ', '+-')
+    sol = sol.translate(to_sep)
+    vs = vs.translate(to_sep)
+    eol = eol.translate(to_sep)
+    sep = '{0}{1}{2}'.format(sol,
                                    vs.join([x*'-' for x in sizes]),
                                    eol)
     # prepare result
-    table.append(separator)
+    table.append(sep)
     if title:
         titles = data.pop(0)
-        table.append(template.format(*titles))
-        table.append(separator)
+        table.append(tmpl.format(*titles))
+        table.append(sep)
 
     for d in data:
-        table.append(template.format(*d))
-    table.append(separator)
+        table.append(tmpl.format(*d))
+    table.append(sep)
     return '\n'.join(table)
 
 # data = [('what', 'how', 'who'),

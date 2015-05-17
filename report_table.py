@@ -2,7 +2,36 @@ import string
 
 
 def as_rest_table(data, title=False):
+  """ nosetests --with-doctest --with-coverage report_table.py
 
+    >>> from report_table import as_rest_table
+    >>> data = [('what', 'how', 'who'),
+    ...        ('lorem', 'that is a long value', 3.1415),
+    ...        ('ipsum', 89798, 0.2)]
+
+    >>> print as_rest_table(data)
+    +-------+----------------------+--------+
+    | what  | how                  | who    |
+    | lorem | that is a long value | 3.1415 |
+    | ipsum |                89798 |    0.2 |
+    +-------+----------------------+--------+
+
+    >>> print as_rest_table(data, title=True)
+    +-------+----------------------+--------+
+    | what  | how                  | who    |
+    +-------+----------------------+--------+
+    | lorem | that is a long value | 3.1415 |
+    | ipsum |                89798 |    0.2 |
+    +-------+----------------------+--------+
+
+    >>> print as_rest_table([])
+    +---------+
+    | No Data |
+    +---------+
+
+    :param data: list of tuple of the same size
+    :return: a ResT table representation
+    """
     data = data if data else [['No Data']]
     table = []
     # max size of each column

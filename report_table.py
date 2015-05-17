@@ -32,6 +32,7 @@ def as_rest_table(data, title=False):
     :param data: list of tuple of the same size
     :return: a ResT table representation
     """
+
     data = data if data else [['No Data']]
     table = []
     # max size of each column
@@ -39,22 +40,22 @@ def as_rest_table(data, title=False):
                            for member in data]))
     num_elts = len(sizes)
 
-    start_of_line = '| '
-    vertical_separator = ' | '
-    end_of_line = ' |'
-    meta_template = vertical_separator.join(['{{{{{0}:{{{0}}}}}}}'.format(i)
+    sol = '| '
+    vs = ' | '
+    eol = ' |'
+    meta_template = vs.join(['{{{{{0}:{{{0}}}}}}}'.format(i)
                                              for i in range(num_elts)])
-    template = '{0}{1}{2}'.format(start_of_line,
+    template = '{0}{1}{2}'.format(sol,
                                   meta_template.format(*sizes),
-                                  end_of_line)
+                                  eol)
     # determine top/bottom borders
     to_separator = string.maketrans('| ', '+-')
-    start_of_line = start_of_line.translate(to_separator)
-    vertical_separator = vertical_separator.translate(to_separator)
-    end_of_line = end_of_line.translate(to_separator)
-    separator = '{0}{1}{2}'.format(start_of_line,
-                                   vertical_separator.join([x*'-' for x in sizes]),
-                                   end_of_line)
+    sol = sol.translate(to_separator)
+    vs = vs.translate(to_separator)
+    eol = eol.translate(to_separator)
+    separator = '{0}{1}{2}'.format(sol,
+                                   vs.join([x*'-' for x in sizes]),
+                                   eol)
     # prepare result
     table.append(separator)
     if title:

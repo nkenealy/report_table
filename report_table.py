@@ -32,6 +32,7 @@ def as_rest_table(data, title=False):
     :param data: list of tuple of the same size
     :return: a ResT table representation
     """
+
     data = data if data else [['No Data']]
     table = []
     # max size of each column

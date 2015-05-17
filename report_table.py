@@ -2,7 +2,7 @@ import string
 
 
 def as_rest_table(data, title=False):
-  """ nosetests --with-doctest --with-coverage report_table.py
+    """ nosetests --with-doctest --with-coverage report_table.py
 
     >>> from report_table import as_rest_table
     >>> data = [('what', 'how', 'who'),

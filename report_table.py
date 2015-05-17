@@ -26,13 +26,13 @@ def as_rest_table(data, title=False):
 
     >>> print as_rest_table([])
     +---------+
-    |         |
+    | No data |
     +---------+
 
     :param data: list of tuple of the same size
     :return: a ResT table representation
     """
-    data = data if data else [['       ']]
+    data = data if data else [['No data']]
     table = []
     # max size of each column
     sizes = map(max, zip(*[[len(str(elt)) for elt in member]

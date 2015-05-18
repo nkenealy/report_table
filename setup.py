@@ -6,7 +6,7 @@ setup(name='techtalk',
       description='Talks for Bloomberg Polarlake Client Services',
       author='Neil Kenealy',
       author_email='neilkenealy@gmail.com',
-      packages=['demo'],
+      packages=['reportfolder'],
       )
 
 __author__ = 'Neil Kenealy'

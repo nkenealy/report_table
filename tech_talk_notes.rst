@@ -1,4 +1,102 @@
->>> from report_table.report_table import as_rest_table
+>>> from reportfolder.report_table.report_table import as_rest_table
+>>> data = [('what', 'how', 'who'),
+            ('lorem', 'that is a long value', 3.1415),
+            ('ipsum', 89798, 0.2)]
+
+
+storyboard for a demo on usin doctests for docuementing testing and refactoring
+
+------git branch report_table - variables bad and no docstring
+
+
+The code (without test or docstring) has been sitting there for a while
+New ticket is opened, it prints ‘None’ for None values, but we want spaces instead
+
+How to handle a change/refactor ?
+
+Use the code from the command line
+
+   nosetests --with-doctest --with-coverage report_table.py
+
+    from report_table import as_rest_table
+    data = [('what', 'how', 'who'),
+            ('lorem', 'that is a long value', 3.1415),
+            ('ipsum', 89798, 0.2)]
+
+    print as_rest_table(data)
+
+    print as_rest_table(data, title=True)
+
+    print as_rest_table([])
+
+
+------git branch docstring_bad_variable
+Copy/paste into the docstring
+Run nose to show test passing and  now getting full coverage
+
+
+------git branch master
+Refactor, renaming variables to sensible names
+Tests still pass
+
+
+Change docstring from No Data to 7 spaces
+Tests fail
+
+Update code from No Data to 7 spaces
+Test pass
+
+
+
+>>> data = [('what', 'how', 'who'),
+            ('lorem', 'that is a long value', 3.1415),
+            ('ipsum', 89798, 0.2)]
+
+
+storyboard for a demo on usin doctests for docuementing testing and refactoring
+
+------git branch report_table - variables bad and no docstring
+
+
+The code (without test or docstring) has been sitting there for a while
+New ticket is opened, it prints ‘None’ for None values, but we want spaces instead
+
+How to handle a change/refactor ?
+
+Use the code from the command line
+
+   nosetests --with-doctest --with-coverage report_table.py
+
+    from report_table import as_rest_table
+    data = [('what', 'how', 'who'),
+            ('lorem', 'that is a long value', 3.1415),
+            ('ipsum', 89798, 0.2)]
+
+    print as_rest_table(data)
+
+    print as_rest_table(data, title=True)
+
+    print as_rest_table([])
+
+
+------git branch docstring_bad_variable
+Copy/paste into the docstring
+Run nose to show test passing and  now getting full coverage
+
+
+------git branch master
+Refactor, renaming variables to sensible names
+Tests still pass
+
+
+Change docstring from No Data to 7 spaces
+Tests fail
+
+Update code from No Data to 7 spaces
+Test pass
+
+
+
 >>> data = [('what', 'how', 'who'),
             ('lorem', 'that is a long value', 3.1415),
             ('ipsum', 89798, 0.2)]

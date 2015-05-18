@@ -32,6 +32,9 @@ def as_rest_table(data, title=False):
     :param data: list of tuple of the same size
     :return: a ResT table representation
     """
+    import pdb
+    pdb.set_trace()
+
     data = data if data else [['No data']]
     table = []
     # max size of each column
